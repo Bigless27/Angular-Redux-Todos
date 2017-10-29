@@ -1,7 +1,6 @@
-# Anguar 4 Project Setup with Webpack | Lesson on Coding
+# Todos with Angular 4 and Redux | Lesson on Coding
 
-
-A complete tutorial on setting up a highly scalable and configurable Angular 4 project with Webpack. Learn how to optimize your web development throughput with this project configuration!
+A simple todo's application built with the Angular 4 framework and redux. 
 
 ### How to Run (dev server)
 - npm install
