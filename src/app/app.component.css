@@ -1,0 +1,11 @@
+.table-row {
+    height: 40px;
+    border
+}
+
+.table-header {
+    background: #F2F2F2;
+    font-size: 24px;
+    color: #456843;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
