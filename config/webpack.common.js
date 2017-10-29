@@ -78,9 +78,9 @@ module.exports = {
 
         new webpack.DefinePlugin({
             'process.env': {
-                isProd: JSON.stringify(process.env.NODE_ENV) === 'production'
+                IsProd: JSON.stringify(process.env.NODE_ENV) === 'production'
             }
-        })
+        }),
 
         new HtmlWebpackPlugin({
             template: 'src/index.html',

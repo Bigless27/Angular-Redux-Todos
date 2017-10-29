@@ -20,7 +20,7 @@ export class AppModule {
     private ngRedux: NgRedux<IInitial_State>,
     private devTools: DevToolsExtension,
     ) {
-        let enhancers = process.env.isProd ? [devTools.enhancer()] : []
+        let enhancers = process.env.isProd ? [] :  [devTools.enhancer()]
         //Add as forth argument to redux store as enhancer
         ngRedux.configureStore(combine, INITIAL_STATE, [], enhancers);
   }
