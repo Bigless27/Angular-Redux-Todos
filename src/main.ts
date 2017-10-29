@@ -2,6 +2,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
+import './assets/alignment.css';
+
 // Enables HMR
 declare var module: any;
 if (module.hot) {
