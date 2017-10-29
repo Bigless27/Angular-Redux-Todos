@@ -24,8 +24,7 @@ module.exports = {
                         loader: 'awesome-typescript-loader',
                         options: {
                             configFileName: isProd ?
-                                helpers.root('tsconfig-aot.json') :
-                                helpers.root('tsconfig.json')
+                                helpers.root('tsconfig-aot.json') : helpers.root('tsconfig.json')
                         }
                     },
                     'angular2-template-loader'
@@ -78,7 +77,8 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: 'src/index.html',
+            favicon: 'src/assets/images/meeseeks.ico'
         })
     ]
 };
