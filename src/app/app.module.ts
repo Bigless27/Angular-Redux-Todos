@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { INITIAL_STATE, IInitial_State, combine } from './../redux/initState';
 import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
 import { HttpModule } from '@angular/http';
@@ -9,7 +10,13 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [CommonModule, BrowserModule, NgReduxModule, HttpModule],
+  imports: [
+                    CommonModule, 
+                    BrowserModule, 
+                    NgReduxModule, 
+                    HttpModule,
+                    ReactiveFormsModule
+                  ],
   exports: [],
   providers: [],
   bootstrap: [AppComponent]

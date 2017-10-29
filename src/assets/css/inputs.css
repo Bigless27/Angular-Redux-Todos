@@ -1,0 +1,55 @@
+input:not([type]):hover:not([readonly]),
+input[type=text]:hover:not([readonly]),
+input[type=password]:hover:not([readonly]),
+input[type=email]:hover:not([readonly]),
+input[type=url]:hover:not([readonly]),
+input[type=time]:hover:not([readonly]),
+input[type=date]:hover:not([readonly]),
+input[type=datetime]:hover:not([readonly]),
+input[type=datetime-local]:hover:not([readonly]),
+input[type=tel]:hover:not([readonly]),
+input[type=number]:hover:not([readonly]),
+input[type=search]:hover:not([readonly]) {
+    font-family: 'Roboto-Light';
+    border: 2px solid #777;
+}
+
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search] {
+    font-family: 'Roboto-Light';
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0 0 0 2px;
+    box-shadow: none;
+    box-sizing: content-box;
+    margin-top: 5px;
+}
+
+.input-underline {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid #D9D9D9;
+    font-family: 'Roboto-Light';
+}
+
+.input-underline:hover {
+    border-bottom: 2px solid #777777 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    font-family: 'Roboto-Light';
+}

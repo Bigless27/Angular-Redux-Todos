@@ -23,4 +23,17 @@
             </div>
         </div>
     </div>
+    <div class='flex-container margin-top-50'>
+        <form [formGroup]='todoForm' (ngSubmit)='addTodo()'>
+            <div class='form-group'>
+                <label for="name">Name</label>
+                <input id='name' name='name' type="text" formControlName='name' placeholder='Enter Name'>
+            </div>
+            <div class="form-group margin-top-15">
+                <label for="description">Description</label>
+                <input id='description' name='description' type="text" formControlName='description' placeholder='Enter Description'>
+            </div>
+            <button [disabled]='!todoForm.valid' type='submit' class='primary width-100 margin-top-15'>Add</button>
+        </form>
+    </div>
 </div>
