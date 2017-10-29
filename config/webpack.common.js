@@ -76,6 +76,12 @@ module.exports = {
             name: ['app', 'vendor', 'polyfills']
         }),
 
+        new webpack.DefinePlugin({
+            'process.env': {
+                isProd: JSON.stringify(process.env.NODE_ENV) === 'production'
+            }
+        })
+
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             favicon: 'src/assets/images/meeseeks.ico'

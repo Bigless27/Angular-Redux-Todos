@@ -1,16 +1,15 @@
-interface ITodo {
-    name: string;
-    description: string;
+import { ITodoState, TODO_STATE, todoReducer } from './reducers/todoReducer';
+import { combineReducers, Reducer } from 'redux';
 
-    complete: boolean;
-
-    createdAt: Date;
-}
-interface IInitialState {
-    todos: Array<ITodo>;
+ export interface IInitial_State {
+    todos: ITodoState;
 }
 
 
-export const INITIAL_STATE:  IInitialState = {
-    todos: []
+export const INITIAL_STATE:  IInitial_State = {
+    todos: TODO_STATE
 }
+
+export const combine = combineReducers<IInitial_State>({
+    todos: todoReducer
+})
