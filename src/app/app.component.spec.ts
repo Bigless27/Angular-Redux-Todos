@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-
+import { NgRedux, select } from '@angular-redux/store';
 import { AppComponent } from './app.component';
 
 describe('App', () => {
