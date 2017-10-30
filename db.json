@@ -1,5 +1,18 @@
 {
-    "todos": [
-
-    ]
+  "todos": [
+    {
+      "name": "t",
+      "description": "t",
+      "complete": false,
+      "createdAt": "2017-10-30T00:43:05.021Z",
+      "id": 1
+    },
+    {
+      "name": "to",
+      "description": "you",
+      "complete": false,
+      "createdAt": "2017-10-30T00:43:05.021Z",
+      "id": 2
+    }
+  ]
 }

@@ -43,14 +43,13 @@ function get_todos_success(state: ITodoState, action: any) {
 
 function create_todos(state: ITodoState, action: any) {
     return tassign(state, {
-        todos: action.payload,
         creating: true
     })
 }
 
 function create_todos_success(state: ITodoState, action: any) {
     return tassign(state, {
-        todos: action.payload,
+        todos: state.todos.concat(action.payload),
         creating: false,
         error: null
     })

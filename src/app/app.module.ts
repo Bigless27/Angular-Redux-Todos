@@ -1,3 +1,5 @@
+import { TodosHttpEpicsService } from '../redux/middleware/todosHttpEpics';
+import { createEpicMiddleware } from 'redux-observable';
 import { ReactiveFormsModule } from '@angular/forms';
 import { INITIAL_STATE, IInitial_State, combine } from './../redux/initState';
 import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
@@ -18,7 +20,9 @@ import { AppComponent } from './app.component';
                     ReactiveFormsModule
                   ],
   exports: [],
-  providers: [],
+  providers: [
+    TodosHttpEpicsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -26,9 +30,15 @@ export class AppModule {
   constructor(
     private ngRedux: NgRedux<IInitial_State>,
     private devTools: DevToolsExtension,
+
+    private todosHttpEpics: TodosHttpEpicsService
     ) {
         let enhancers = process.env.isProd ? [] :  [devTools.enhancer()]
         //Add as forth argument to redux store as enhancer
-        ngRedux.configureStore(combine, INITIAL_STATE, [], enhancers);
+        ngRedux.configureStore(combine, INITIAL_STATE,
+           [createEpicMiddleware(this.todosHttpEpics.getTodos),
+            createEpicMiddleware(this.todosHttpEpics.createTodo)
+          ]
+        , enhancers);
   }
 }

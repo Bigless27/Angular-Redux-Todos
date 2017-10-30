@@ -8,18 +8,33 @@
                 <div class='flex-container flex-center width-25'>Complete</div>
                 <div class='flex-container flex-center width-25'>Created At</div>
             </div>
-            <div class='flex-container flex-space-between-row table-row'>
-                <div class='flex-container flex-center width-25'>Ryan</div>
-                <div class='flex-container flex-center width-25'>Lesson</div>
-                <div class='flex-container flex-center width-25'>
+            <div class='flex-container flex-space-between-row table-row-content'>
+                <div class='width-100' *ngIf='todo_state | async as todosData; else loading'>
+                    <div *ngIf='todosData.length; else noTodos'>
+                        <div *ngFor='let todo of todosData'>
+                            {{todo}}
+                        </div>
+                    </div>
+                    <ng-template #noTodos>
+                        <div class='flex-container flex-center'>No Todos</div>
+                    </ng-template>
+                </div>
+                <ng-template #noLoading class='flex-container flex-center width-100'>
+                    <div class='flex-container flex-center width-100'>
+                        <div class='flex-container flex-center'>Loading</div>
+                    </div>
+                </ng-template>
+                <!-- <div class='flex-container flex-center-horz width-25'>Ryan</div>
+                <div class='flex-container flex-center-horz width-25'>Lesson</div>
+                <div class='flex-container flex-center-horz width-25'>
                     <div class="md-checkbox">
                         <input id="i2" type="checkbox">
                         <label for="i2"></label>
                     </div>
                 </div>
-                <div class='flex-container flex-center width-25'>
+                <div class='flex-container flex-center-horz width-25'>
                     10/29/2019
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

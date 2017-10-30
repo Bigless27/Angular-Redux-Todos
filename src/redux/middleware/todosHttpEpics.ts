@@ -24,7 +24,7 @@ export class TodosHttpEpicsService {
     }
 
     createTodo = (action$: Observable<any>) => {
-        return action$.filter(({ type }) => type === t.GET_TODOS)
+        return action$.filter(({ type }) => type === t.CREATE_TODOS)
             .flatMap((data) => this.http.post(process.env.API_URL + 'todos', data.payload)
             .map(result => ({
                 type: t.CREATE_TODOS_SUCCESS,

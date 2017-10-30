@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { IInitial_State, INITIAL_STATE } from './../redux/initState';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +13,8 @@ import * as t from '../redux/actions/todos-actions';
 })
 export class AppComponent implements OnInit {
   public todoForm: FormGroup;
+
+  public todo_state: Observable<any>;
   constructor(
       private fb: FormBuilder,
       private ngRedux: NgRedux<IInitial_State>
@@ -29,9 +32,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ngRedux.select(x => x.todos).subscribe(data => {
-      console.log(data)
-    })
+    this.todo_state = this.ngRedux.select(x => x.todos.todos)
   }
 
   addTodo(todo: any) {

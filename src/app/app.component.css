@@ -1,6 +1,11 @@
 .table-row {
     height: 40px;
-    border
+}
+
+.table-row-content {
+    height: 40px;
+    height: 300px;
+    overflow: auto;
 }
 
 .table-header {
