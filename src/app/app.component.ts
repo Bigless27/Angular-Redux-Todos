@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       'name': [null, Validators.compose([Validators.required])],
       'description': [null, Validators.compose([Validators.required])],
       'complete': false,
-      'createdAt': [new Date()]
+      'created': [new Date()]
     })
   }
 

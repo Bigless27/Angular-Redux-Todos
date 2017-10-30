@@ -3,16 +3,28 @@
     <div class='flex-container flex-center width-100'>
         <div class='flex-container flex-column width-70'>
             <div class='flex-container flex-space-between-row table-header table-row'>
-                <div class='flex-container flex-center width-25'>Name</div>
-                <div class='flex-container flex-center width-25'>Description</div>
-                <div class='flex-container flex-center width-25'>Complete</div>
-                <div class='flex-container flex-center width-25'>Created At</div>
+                <div class='flex-container flex-center width-20'>Name</div>
+                <div class='flex-container flex-center width-20'>Description</div>
+                <div class='flex-container flex-center width-20'>Completed</div>
+                <div class='flex-container flex-center width-20'>Created</div>
+                <div class='flex-container flex-center width-20'></div>
             </div>
             <div class='flex-container flex-space-between-row table-row-content'>
                 <div class='width-100' *ngIf='todo_state | async as todosData; else loading'>
                     <div *ngIf='todosData.length; else noTodos'>
-                        <div *ngFor='let todo of todosData'>
-                            {{todo}}
+                        <div *ngFor='let todo of todosData' class='flex-container flex-space-between-row table-row width-100 '>
+                            <div class='flex-container flex-center width-20'>{{todo.name}}</div>
+                            <div class='flex-container flex-center width-20'>{{todo.description}}</div>
+                            <div class='flex-container flex-center width-20'>
+                                <div class="md-checkbox">
+                                    <input name='documented' id="i2" type="checkbox">
+                                    <label for="i2"></label>
+                                </div>
+                            </div>
+                            <div class='flex-container flex-center width-20'>{{todo.created | date:medium}}</div>
+                            <div class='flex-container flex-center width-20'>
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
                     <ng-template #noTodos>

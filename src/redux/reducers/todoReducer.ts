@@ -8,7 +8,7 @@ export interface ITodo {
     description: string,
     completed: boolean,
 
-    createdAt: string
+    created: Date
 }
 export interface ITodoState {
    todos: Array<ITodo>,
@@ -18,7 +18,14 @@ export interface ITodoState {
 }
 
 export const  TODO_STATE: ITodoState = {
-   todos: [],
+   todos: [
+       {
+           name: "Initial Todo",
+           description: "I am the initial todo",
+           completed: false,
+           created:  new Date()
+       }
+   ],
    fetching: false,
    creating: false,
    error: null
