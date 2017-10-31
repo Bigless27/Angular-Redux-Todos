@@ -1,25 +1,3 @@
 {
-  "todos": [
-    {
-      "name": "t",
-      "description": "t",
-      "complete": false,
-      "created": "2017-10-31T03:47:18.294Z",
-      "id": 37
-    },
-    {
-      "name": "todo",
-      "description": "todo",
-      "complete": false,
-      "created": "2017-10-31T03:48:07.593Z",
-      "id": 38
-    },
-    {
-      "name": "tom",
-      "description": "tom",
-      "complete": false,
-      "created": "2017-10-31T03:51:10.592Z",
-      "id": 39
-    }
-  ]
+    "todos": []
 }
