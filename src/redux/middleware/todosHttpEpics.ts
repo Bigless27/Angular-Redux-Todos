@@ -46,5 +46,18 @@ export class TodosHttpEpicsService {
         )
     }
 
+    deleteTodo = (action$: Observable<any>) => {
+        return action$.filter(({ type }) => type === t.DELETE_TODO)
+            .flatMap((data) => this.http.delete(process.env.API_URL + 'todos/' + data.payload.id)
+            .map(result => ({
+                type: t.GET_TODOS,
+                payload: result.json()
+            }))
+            .catch(error => Observable.of( {type: t.TODOS_ERROR}))
+        )
+    }
+
+
+
 
 }

@@ -38,7 +38,8 @@ export class AppModule {
         ngRedux.configureStore(combine, INITIAL_STATE,
            [createEpicMiddleware(this.todosHttpEpics.getTodos),
             createEpicMiddleware(this.todosHttpEpics.createTodo),
-            createEpicMiddleware(this.todosHttpEpics.completeTodo)
+            createEpicMiddleware(this.todosHttpEpics.completeTodo),
+            createEpicMiddleware(this.todosHttpEpics.deleteTodo)
           ]
         , enhancers);
   }

@@ -43,6 +43,10 @@ export class AppComponent implements OnInit {
     this.ngRedux.dispatch({type: t.COMPLETE_TODO, payload: todo})
   }
 
+  deleteTodo(todo: ITodo) {
+    this.ngRedux.dispatch({type: t.DELETE_TODO, payload: todo})
+  }
+
   addTodo(todo: any) {
     this.ngRedux.dispatch({type: t.CREATE_TODOS, payload: this.todoForm.value })
   }

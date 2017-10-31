@@ -23,7 +23,7 @@
                             </div>
                             <div class='flex-container flex-center width-20'>{{todo.created | date:medium}}</div>
                             <div class='flex-container flex-center width-20'>
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                <i (click)='deleteTodo(todo)' class="fa fa-trash-o" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
