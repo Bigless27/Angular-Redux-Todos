@@ -1,7 +1,7 @@
-import { ITodoState, TODO_STATE, todoReducer } from './reducers/todoReducer';
 import { combineReducers, Reducer } from 'redux';
+import { ITodoState, TODO_STATE, todoReducer } from './reducers/todoReducer';
 
- export interface IInitial_State {
+export interface IInitial_State {
     todos: ITodoState;
 }
 
@@ -13,3 +13,4 @@ export const INITIAL_STATE:  IInitial_State = {
 export const combine = combineReducers<IInitial_State>({
     todos: todoReducer
 })
+

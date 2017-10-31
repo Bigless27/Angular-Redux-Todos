@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Angular webpack starter",
     "scripts": {
-        "start": "webpack-dev-server --inline --hot --progress --port --open 8080",
+        "start": "webpack-dev-server --inline --hot --progress --port  8080 --open",
         "test": "karma start",
         "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
         "build:aot": "ngc -p tsconfig-aot.json",

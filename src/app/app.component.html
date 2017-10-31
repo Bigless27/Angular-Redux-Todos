@@ -17,8 +17,8 @@
                             <div class='flex-container flex-center width-20'>{{todo.description}}</div>
                             <div class='flex-container flex-center width-20'>
                                 <div class="md-checkbox">
-                                    <input name='documented' [attr.id]="i" type="checkbox" (click)='completeTodo(todo)' [attr.checked]="todo.complete ? '' : null">
-                                    <label [attr.for]="i"></label>
+                                    <input name='complete' (click)='completeTodo(todo)' [attr.id]='i' type="checkbox" [attr.checked]="todo.complete ? '' : null">
+                                    <label [attr.for]='i'></label>
                                 </div>
                             </div>
                             <div class='flex-container flex-center width-20'>{{todo.created | date:medium}}</div>
@@ -31,22 +31,12 @@
                         <div class='flex-container flex-center'>No Todos</div>
                     </ng-template>
                 </div>
-                <ng-template #noLoading class='flex-container flex-center width-100'>
-                    <div class='flex-container flex-center width-100'>
+                <ng-template #loading class='flex-container flex-center width-100'>
+                    <div class='flex-container flex-column flex-center width-100'>
                         <div class='flex-container flex-center'>Loading</div>
+                        <i class='fa fa-gear fa-spin'></i>
                     </div>
                 </ng-template>
-                <!-- <div class='flex-container flex-center-horz width-25'>Ryan</div>
-                <div class='flex-container flex-center-horz width-25'>Lesson</div>
-                <div class='flex-container flex-center-horz width-25'>
-                    <div class="md-checkbox">
-                        <input id="i2" type="checkbox">
-                        <label for="i2"></label>
-                    </div>
-                </div>
-                <div class='flex-container flex-center-horz width-25'>
-                    10/29/2019
-                </div> -->
             </div>
         </div>
     </div>

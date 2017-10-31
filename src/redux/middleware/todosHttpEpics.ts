@@ -1,9 +1,8 @@
-import { COMPLETE_TODO } from './../actions/todos-actions';
 import { ITodoState } from '../reducers/todoReducer';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import * as t from '../actions/todos-actions';
+import * as t from '../actions/todo-actions';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
@@ -11,7 +10,11 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class TodosHttpEpicsService {
-    constructor(private http: Http) {}
+
+    constructor(private http: Http) {
+
+    }
+
 
     getTodos = (action$: Observable<any>) => {
         return action$.filter(({ type }) => type === t.GET_TODOS)
@@ -31,9 +34,10 @@ export class TodosHttpEpicsService {
                 type: t.CREATE_TODOS_SUCCESS,
                 payload: result.json()
             }))
-            .catch(error => Observable.of( {type: t.TODOS_ERROR}))
+            .catch(error => Observable.of({type: t.TODOS_ERROR, payload: error}))
         )
     }
+
 
     completeTodo = (action$: Observable<any>) => {
         return action$.filter(({ type }) => type === t.COMPLETE_TODO)
@@ -56,8 +60,4 @@ export class TodosHttpEpicsService {
             .catch(error => Observable.of( {type: t.TODOS_ERROR}))
         )
     }
-
-
-
-
 }
