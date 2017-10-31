@@ -1,3 +1,4 @@
+import { COMPLETE_TODO } from './../actions/todos-actions';
 import { ITodoState } from '../reducers/todoReducer';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
@@ -33,4 +34,17 @@ export class TodosHttpEpicsService {
             .catch(error => Observable.of( {type: t.TODOS_ERROR}))
         )
     }
+
+    completeTodo = (action$: Observable<any>) => {
+        return action$.filter(({ type }) => type === t.COMPLETE_TODO)
+            .flatMap((data) => this.http.put(process.env.API_URL + 'todos/' + data.payload.id, data.payload)
+            .map(result => ({
+                type: t.COMPLETE_TODO_SUCCESS,
+                payload: result.json()
+            }))
+            .catch(error => Observable.of( {type: t.TODOS_ERROR}))
+        )
+    }
+
+
 }

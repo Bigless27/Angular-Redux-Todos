@@ -6,7 +6,7 @@ import * as t from '../actions/todos-actions';
 export interface ITodo {
     name: string,
     description: string,
-    completed: boolean,
+    complete: boolean,
 
     created: Date
 }
@@ -18,14 +18,7 @@ export interface ITodoState {
 }
 
 export const  TODO_STATE: ITodoState = {
-   todos: [
-       {
-           name: "Initial Todo",
-           description: "I am the initial todo",
-           completed: false,
-           created:  new Date()
-       }
-   ],
+   todos: [],
    fetching: false,
    creating: false,
    error: null
@@ -62,6 +55,18 @@ function create_todos_success(state: ITodoState, action: any) {
     })
 }
 
+function complete_todo(state: ITodoState, action: any) {
+    return tassign(state, {
+        
+    })
+}
+
+function complete_todo_success(state: ITodoState, action: any) {
+    return tassign(state, {
+        
+    })
+}
+
 function todos_error(state: ITodoState, action: any) {
     return tassign(state, {
         error: action.payload
@@ -79,6 +84,10 @@ export function todoReducer(state: ITodoState = TODO_STATE, action: any): ITodoS
         case t.CREATE_TODOS: return create_todos(state, action); 
 
         case t.CREATE_TODOS_SUCCESS: return create_todos_success(state, action);
+
+        case t.COMPLETE_TODO: return complete_todo(state, action);
+
+        case t.COMPLETE_TODO_SUCCESS: return complete_todo_success(state, action);
 
         case t.TODOS_ERROR: return todos_error(state, action);
 

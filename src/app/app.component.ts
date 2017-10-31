@@ -1,3 +1,4 @@
+import { ITodo } from './../redux/reducers/todoReducer';
 import { Observable } from 'rxjs/Rx';
 import { IInitial_State, INITIAL_STATE } from './../redux/initState';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
@@ -32,7 +33,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todo_state = this.ngRedux.select(x => x.todos.todos)
+    // this.ngRedux.select(x => console.log(x.todos.todos))
+    this.ngRedux.dispatch({type: t.GET_TODOS})
+    this.todo_state = this.ngRedux.select(x => x.todos.todos);
+  }
+
+  completeTodo(todo: ITodo) {
+    todo.complete = !todo.complete;
+    this.ngRedux.dispatch({type: t.COMPLETE_TODO, payload: todo})
   }
 
   addTodo(todo: any) {

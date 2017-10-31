@@ -37,7 +37,8 @@ export class AppModule {
         //Add as forth argument to redux store as enhancer
         ngRedux.configureStore(combine, INITIAL_STATE,
            [createEpicMiddleware(this.todosHttpEpics.getTodos),
-            createEpicMiddleware(this.todosHttpEpics.createTodo)
+            createEpicMiddleware(this.todosHttpEpics.createTodo),
+            createEpicMiddleware(this.todosHttpEpics.completeTodo)
           ]
         , enhancers);
   }
