@@ -1,4 +1,4 @@
-import { CREATE_TODOS_SUCCESS } from './../actions/todos-actions';
+import { CREATE_TODOS_SUCCESS, DELETE_TODO } from './../actions/todos-actions';
 import { ITodoState } from './todoReducer';
 import { tassign } from 'tassign';
 import * as t from '../actions/todos-actions';
@@ -12,22 +12,20 @@ export interface ITodo {
 }
 export interface ITodoState {
    todos: Array<ITodo>,
-   fetching: false,
-   creating: false,
+   loading: false,
    error:  null
 }
 
 export const  TODO_STATE: ITodoState = {
    todos: [],
-   fetching: false,
-   creating: false,
+   loading: false,
    error: null
 }
 
 function get_todos(state: ITodoState, action: any ) {
     return tassign(state, {
         todos: action.payload,
-        fetching: true
+        loading: true
     })
 }
 
@@ -35,7 +33,7 @@ function get_todos(state: ITodoState, action: any ) {
 function get_todos_success(state: ITodoState, action: any) {
     return tassign(state, {
         todos: action.payload,
-        fetching: false,
+        loading: false,
         error: null
     })
 }
@@ -43,27 +41,39 @@ function get_todos_success(state: ITodoState, action: any) {
 
 function create_todos(state: ITodoState, action: any) {
     return tassign(state, {
-        creating: true
+        loading: true
     })
 }
 
 function create_todos_success(state: ITodoState, action: any) {
     return tassign(state, {
         todos: state.todos.concat(action.payload),
-        creating: false,
+        loading: false,
         error: null
     })
 }
 
 function complete_todo(state: ITodoState, action: any) {
     return tassign(state, {
-        
+        loading: true
     })
 }
 
 function complete_todo_success(state: ITodoState, action: any) {
     return tassign(state, {
-        
+        loading: false
+    })
+}
+
+function delete_todo(state: ITodoState, action: any) {
+    return tassign(state, {
+        loading: true
+    })
+}
+
+function delete_todo_success(state: ITodoState, action: any) {
+    return tassign(state, {
+        loading: false
     })
 }
 
@@ -88,6 +98,10 @@ export function todoReducer(state: ITodoState = TODO_STATE, action: any): ITodoS
         case t.COMPLETE_TODO: return complete_todo(state, action);
 
         case t.COMPLETE_TODO_SUCCESS: return complete_todo_success(state, action);
+
+        case t.DELETE_TODO: return delete_todo(state, action);
+
+        case t.DELETE_TODO_SUCCESS: return delete_todo_success(state, action)
 
         case t.TODOS_ERROR: return todos_error(state, action);
 
