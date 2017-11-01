@@ -1,6 +1,6 @@
 # Todos with Angular 4 and Redux | Lesson on Coding
 
-A simple todo's application built with the Angular 4 framework and redux. This project was built off my
+A simple todos application built with the Angular 4 framework and redux. This project was built off my
 [Angular Wepack Starter](https://github.com/Bigless27/Angular-webpack-starter) skeleton.
 
 
